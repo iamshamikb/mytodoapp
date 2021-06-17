@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{%extends 'todo/base.html'%}
+<html>
+    {%block content%}
+    <head>
+        <div class="container">
+        <h1>Your To Dos!!</h1>
+        </div>
+    </head>
+    <body>
+        <ul>
+            {%for i in todos%}
+            <li>
+            <a href={%url 'viewtodo' i.id %} class="list-group-item list-group-item-action">
+                {%if i.important%}
+                <b>{{i.title}}</b>
+                {%else%}
+                    {{i.title}}
+                {%endif%}
+            
+            
+            {%if i.memo%}
+                <br><br>{{i.memo}}
+            {%endif%}
+            </a>
+            </li>
+            {%endfor%}
+        </ul>
+    </body>
+    {%endblock%}
+</html>
